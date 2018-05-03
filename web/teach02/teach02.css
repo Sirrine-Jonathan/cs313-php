@@ -1,3 +1,12 @@
-div:hover {
-	font-weight:bold;
+
+.content-div {
+	font-size: 2em;
+	margin: 1%;
+	padding: 2%;
+	background-color: #DDDDDD;
+	border-radius: 5px;
+}
+	
+.content-div:hover {
+	font-weight: bold;
 }
