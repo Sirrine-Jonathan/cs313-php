@@ -1,7 +1,7 @@
 
 <?php
 
-  print "<a href=\"helloWorld.html\">helloWorld.html</a>";
+  print "<a href=\"hello.html\">hello.html</a>";
   phpinfo();
 
 ?>
