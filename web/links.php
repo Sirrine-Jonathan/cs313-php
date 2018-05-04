@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>home</title>
+	<title>Assignments</title>
 </head>
 <body>
-	<?php include_once('inc/nav.inc.php'); ?>
+	<?php include ("inc/nav.inc.php"); ?>
 </body>
 </html>
