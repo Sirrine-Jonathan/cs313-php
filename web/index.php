@@ -35,7 +35,7 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item active">
-			  <img src="pics/jon.jpg" alt="Jonathan in Washington">
+			  <img class="cPic" src="pics/jon.jpg" alt="Jonathan in Washington">
 			  <div class="carousel-caption">
 				<h3>Camano Island</h3>
 				<p>This is me on a small island by close to where I'm living</p>
@@ -43,7 +43,7 @@
 			</div>
 
 			<div class="item">
-			  <img src="pics/colombia.jpg" alt="Paragliding in Columbia">
+			  <img class="cPic" src="pics/colombia.jpg" alt="Paragliding in Columbia">
 			  <div class="carousel-caption">
 				<h3>Ansermanuevo, Columbia</h3>
 				<p>Flying the apsen 3</p>
@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="item">
-			  <img src="pics/colombia2.jpg" alt="Paragliding in Columbia">
+			  <img class="cPic" src="pics/colombia2.jpg" alt="Paragliding in Columbia">
 			  <div class="carousel-caption">
 				<h3>Answermanuevo, Columbia</h3>
 				<p>Another picture of Paragliding</p>
