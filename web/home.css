@@ -1,0 +1,24 @@
+.jumbotron {
+	background-color: #c4cfff;
+}
+
+img {
+	width: 50%;
+	float:right;
+}
+
+.well {
+	padding: 2%;
+	margin: 0 auto;
+	background-color: #c4cfff;
+	width: 50%;
+	display: flex;
+}
+
+.image-div {
+	flex-grow: 1;
+}
+
+.caption-div {
+	flex-grow: 2;
+}
