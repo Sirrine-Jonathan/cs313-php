@@ -4,6 +4,6 @@
 	<title>Assignments</title>
 </head>
 <body>
-	<?php include ("inc/nav.inc.php"); ?>
+	<?php include ("nav.php"); ?>
 </body>
 </html>
