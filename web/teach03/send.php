@@ -1,7 +1,7 @@
 <html>
 	<body>
 		Welcome <?php echo $_POST["name"]; ?><br>
-		Your email address is: <a href="mailto:<?php echo $_POST["email"];?>">address</a><br>
+		Your email address is: <a href="mailto:<?php echo $_POST["email"];?>" target="_blank"><?php echo $_POST["email"] ?> </a><br>
 		Your major is: <?php echo $_POST["major"]; ?><br>
 		Your Comments: <?php echo $_POST["comments"]; ?><br><br>
 		Continents You've Visited:<br>
