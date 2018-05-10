@@ -3,7 +3,6 @@
 <head></head>
 <body>
 
-  <?php 
 	<form action="send.php" method="post">
 	<p>name:</p> <input type="text" name="name"><br>
   	<p>E-Mail:</p><input type="text" name="email"><br>
@@ -30,8 +29,6 @@
     Antarctica <input type="checkbox" name="continents[]" value="an"><br>
     
     </form>
-    
-    '; ?>
   
   
   
