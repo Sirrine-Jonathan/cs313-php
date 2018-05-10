@@ -11,16 +11,7 @@
 		<p>E-Mail:</p><input type="text" name="email" /><br />
 		<p>Major:</p><br />
 		
-		<!--
-		<?php
-			$majors = array("Computer Science", "Web Design and Development", "Computer Information Technology", "Computer Engineering");
-			$majorsLen = count($majors);
-			for ($i = 0; $i < $majorsLen, $i++){
-				echo "<input type='radio' name='major' value='" . $majors[$i] . "'/><br />"; 
-			};
-		  
-		?>
-		-->
+
 		
 		<p>Comments:</p><br />
 		<textarea name="comments" rows="4" cols="40"></textarea><br />
