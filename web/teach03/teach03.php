@@ -14,7 +14,7 @@
 		<?php
 			$majors = array("Computer Science", "Web Design and Development", "Computer Information Technology", "Computer Engineering");
 			$majorsLen = count($majors);
-			for ($i = 0; $i < $majorsLen, $i++){
+			for ($i = 0; $i < $majorsLen; $i++){
 				echo "<input type='radio' name='major' value='" . $majors[$i] . "'><br>"; 
 			};
 		  
