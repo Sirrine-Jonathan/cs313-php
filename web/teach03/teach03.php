@@ -30,6 +30,7 @@
 		Asia<input type="checkbox" name="continents[]" value="AS"><br />
 		Africa<input type="checkbox" name="continents[]" value="AF"><br />
 		Antarctica<input type="checkbox" name="continents[]" value="AN"><br />
+		<input type="submit" id="submitBtn" value="Submit" />
     </form>
 </body>
 </html>
