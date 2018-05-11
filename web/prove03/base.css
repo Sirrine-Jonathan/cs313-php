@@ -1,0 +1,13 @@
+img {
+	width: 200px;
+}
+
+.containerRow {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+input[type="number"] {
+    width: 30px;
+    margin-right: 10px;
+}
