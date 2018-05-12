@@ -8,6 +8,31 @@ img {
 }
 
 input[type="number"] {
-    width: 30px;
-    margin-right: 10px;
+	width: 30px;
+	margin: 10px;
 }
+
+.product {
+	width: 30%;
+	border: 1px solid grey;
+	padding: 2%;
+	margin: 2%;
+	border-radius: 5px;
+}
+
+#cartDiv {
+    width: 50%;
+    border: 1px solid grey;
+    padding: 2%;
+    border-radius: 5px;
+	margin: 0 auto;
+}
+
+.cartItem:nth-child(odd) {
+	background-color: #8080802e;
+}
+
+input:invalid {
+  border-color: red;
+}
+

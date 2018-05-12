@@ -3,53 +3,70 @@
 	$products = array("Google Home", "Google Mini", "Amazon Echo", "Amazon Dot");
 	$amounts = array("89.99", "49.99", "99.99", "49.99");
 	
-	if (isset($_POST["homeQty"])) { $_SESSION["homeQty"] = $_POST["homeQty"]; };
-	if (isset($_POST["miniQty"])) { $_SESSION["miniQty"] = $_POST["miniQty"]; };
-	if (isset($_POST["echoQty"])) { $_SESSION["echoQty"] = $_POST["echoQty"]; };
-	if (isset($_POST["dotQty"]))  { $_SESSION["dotQty"]  = $_POST["dotQty"]; };
-	
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Cart</title>
+	<link rel="stylesheet" href="base.css" />
 </head>
 <body>
 	<h1>Cart</h1>
-	<div>
-		<ul>
-			<li><a href="prove03.php">Browse</a></li>
-			<li><a href="checkout03.php">Checkout</a></li>			
-		</ul>
+	<div class="nav_box">
+		<a href="prove03.php">Browse</a>		
 	</div>
 	<div class="main_content">
-		<div>
-			<input class="itemQty" name="homeQty" type="number" value="<?php echo $_SESSION["homeQty"] ?>" /><span>Google Home</span></div>
-			<input class="itemQty" name="miniQty" type="number" value="<?php echo $_SESSION["miniQty"] ?>" /><span>Google Mini</span></div>
-			<input class="itemQty" name="echoQty" type="number" value="<?php echo $_SESSION["echoQty"] ?>" /><span>Google Echo</span></div>
-			<input class="itemQty" name="dotQty" type="number" value="<?php echo $_SESSION["dotQty"] ?>" /><span>Google Dot</span></div>
+	
+		<div id="cartDiv">
+			<div class="cartItem">
+				<input class="itemQty" name="homeQty" type="number" value="<?php echo $_SESSION["homeQty"] ?>" />
+				<span>Google Home</span>
+				<span class="price"></span>
+			</div>
+			<div class="cartItem">
+				<input class="itemQty" name="miniQty" type="number" value="<?php echo $_SESSION["miniQty"] ?>" />
+				<span>Google Mini</span>
+				<span class="price"></span>
+			</div>
+			<div class="cartItem">
+				<input class="itemQty" name="echoQty" type="number" value="<?php echo $_SESSION["echoQty"] ?>" />
+				<span>Google Echo</span>
+				<span class="price"></span>
+			</div>
+			<div class="cartItem">
+				<input class="itemQty" name="dotQty" type="number" value="<?php echo $_SESSION["dotQty"] ?>" />
+				<span>Google Dot</span>
+				<span class="price"></span>
+			</div>
+			<a href="checkout03.php" style="float: right">Checkout</a>	
 		</div>
 	</div>
+	<script src="update.js"></script>
 	<script>
-		let inputs = document.querySelectorAll("input.itemQty");
-		inputs.forEach(function (input){
-			input.addEventListener("change", function(e){
-				e.preventDefault();
-				let name = e.target.name;
-				var xhr = new XMLHttpRequest();
-				xhr.open("POST", "update.php", true);
-				xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				xhr.onreadystatechange = function(){
-					if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-						console.log("sent?");
-					}
-				}
-				console.log(name);
-				console.log(input.value);
-				xhr.send(name + "=" + input.value);
-				
-			})
-		});
+		//write script to update price on change
+		//will have to work on page load as well 
+		
+		let qtyBtns = document.querySelectorAll(".itemQty");
+		for (let i = 0; i < qtyBtns.length; i++){
+			updateVal(qtyBtns[i], i);
+			qtyBtns[i].addEventListener("change", function(e){
+				updateVal(this, i);
+			});
+		}
+		
+		function updateVal(qtyHTML, ind){
+			let priHTML = qtyHTML.nextElementSibling.nextElementSibling;
+			let prices = ["89.99", "49.99", "99.99", "49.99"];
+			let qty = qtyHTML.value;
+			let priceF = Intl.NumberFormat('en-US', {
+				style: 'currency', 
+				currency: 'USD',
+				minimumFractionDigits: 2 
+			});
+			let price = priceF.format(qty * prices[ind]);
+
+			priHTML.innerHTML = price;
+		}
 	</script>
 </body>
 </html>

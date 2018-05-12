@@ -1,23 +1,9 @@
 <?php
 	session_start();
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Browse</title>
-	<link rel="stylesheet" href="base.css" />
-</head>
-<body>
-<div>
-	<h1>Browse</h1>
-	<div>
-		<a href="../links.php">Back to Assignments</a>		
-	</div>
-	<div class="main_content">
-		<form method="post" action="cart03.php">
-		<div class="containerRow">
+			/*
 			<div class="product">
 				<h3>Google Home</h3>
+				<h5><?php ?></h5>
 				<img src="product_pics/gHome.png" alt="Google Home" />
 				<input type="number" class="itemQty" name="homeQty" value="<?php 
 					if (isset($_SESSION["homeQty"])) { 
@@ -27,61 +13,54 @@
 					}
 				?>" /><label>In Cart</label>
 			</div>
-			<div class="product">
-				<h3>Google Mini</h3>
-				<img src="product_pics/gMini.png" alt="Google Mini" />
-				<input type="number" class="itemQty" name="miniQty" value="<?php 
-					if (isset($_SESSION["miniQty"])) { 
-						echo $_SESSION["miniQty"];
-					} else { 
-						echo 0;
-					}
-				?>" /><label>In Cart</label>
-			</div>
+			*/
+	function buildProduct($index){
+		
+		$products = array("Google Home", "Google Mini", "Amazon Echo", "Amazon Dot");
+		$prices = array("89.99", "49.99", "99.99", "49.99");
+		$images = array("gHome.png","gMini.png","aEcho.png","aDot.png");
+		$qtyIndeces = array("homeQty", "miniQty", "echoQty", "dotQty");
+		
+		if (isset($_SESSION[$qtyIndeces[$index]])) { 
+			$qty =  $_SESSION[$qtyIndeces[$index]];
+		} else { 
+			$qty = 0;
+		};
+		
+		echo "<div class='product'>" .
+				"<h3>" . $products[$index] . "</h3>" .
+				"<p>" . $prices[$index] . "</p>" .
+				"<img src='product_pics/" . $images[$index] . "' alt='" . $products[$index] . " image' /><br />" .
+				"Quantity <input type='number' class='itemQty' name='" . $qtyIndeces[$index] . "' value='" . $qty . "' />" .
+				"</div>";
+	}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Browse</title>
+	<link rel="stylesheet" href="base.css" />
+</head>
+<body>
+<div>
+	<h1>Assistant Device Online Store</h1>
+	<div class="nav_box">
+		<a href="../links.php">Back to Assignments</a>		
+	</div>
+	<div class="main_content">
+		<form method="post" action="cart03.php">
+		<div class="containerRow">
+			<?php buildProduct(0); ?>
+			<?php buildProduct(1); ?>
 		</div>
 		<div class="containerRow">
-			<div class="product">
-				<h3>Amazon Echo</h3>
-				<img src="product_pics/aEcho.png" alt="Amazon Echo" />
-				<input type="number" class="itemQty" name="echoQty" value="<?php 
-					if (isset($_SESSION["echoQty"])) { 
-						echo $_SESSION["echoQty"];
-					} else { 
-						echo 0;
-					}
-				?>" /><label>In Cart</label>
-			</div>
-			<div class="product">
-				<h3>Amazon Dot</h3>
-				<img src="product_pics/aDot.png" alt="Amazon Dot" />
-				<input type="number" class="itemQty" name="dotQty" value="<?php 
-					if (isset($_SESSION["dotQty"])) { 
-						echo $_SESSION["dotQty"];
-					} else { 
-						echo 0;
-					}
-				?>" /><label>In Cart</label>
-			</div>
+			<?php buildProduct(2); ?>
+			<?php buildProduct(3); ?>
 		</div>
 		<input type="submit" value="View Cart" />
 		</form>
 	</div>
 </div>
-<script>
-	var boxes = document.querySelectorAll(".cartBox");
-	boxes.forEach(function(b){
-		b.addEventListener("click", function(e){
-			updateCheck(b);
-		})
-		updateCheck(b);
-	})
-	
-	function updateCheck(box){
-		if (box.checked)
-			box.nextSibling.innerHTML = "Added to Cart";
-		else 
-			box.nextSibling.innerHTML = "Add to Cart";
-	}
-</script>
+<script src="update.js"></script>
 </body>
 </html>
